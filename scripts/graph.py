@@ -55,7 +55,6 @@ def cons_adj(text):
 
     for sent in list(tokens.sents):
         for cons in sent._.constituents:
-            print(cons)
             if len(cons) == 1:
                 continue
             matrix[cons.start:cons.end, cons.start:cons.end] += np.ones([len(cons), len(cons)])

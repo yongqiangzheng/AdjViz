@@ -1,0 +1,67 @@
+<!--<html>-->
+<!--    &lt;!&ndash;引入jQuery包用于使用ajax&ndash;&gt;-->
+<!--    <script type="text/javascript" src="http://apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js"></script>-->
+<!--    <h1>请输入你的姓名和年龄</h1>-->
+<!--    &lt;!&ndash;创建两个input输入框，定义id分别为name,age&ndash;&gt;-->
+<!--    <input type="text" id="name" name="name" placeholder="姓名">-->
+<!--    <br>-->
+<!--    &lt;!&ndash;创建button按钮，点击则激发submit()事件&ndash;&gt;-->
+<!--    <button onclick="submit();">提交</button>-->
+<!--    <script>-->
+<!--        /*在这里编写submit()事件*/-->
+<!--        function submit() {-->
+<!--            $.ajax({-->
+<!--                url: "submit", /*数据提交到submit处*/-->
+<!--                type: "POST",  /*采用POST方法提交*/-->
+<!--                data: { "name": $("#name").val(),"age":$("#age").val()},  /*提交的数据（json格式），从输入框中获取*/-->
+<!--                /*result为后端函数返回的json*/-->
+<!--                success: function (result) {-->
+<!--                    if (result.message == "success!") {-->
+<!--                        alert(result.message+"你的名字是"+result.name+",你的年龄是"+result.age)-->
+<!--                    }-->
+<!--                    else {-->
+<!--                        alert(result.message)-->
+<!--                    }-->
+<!--                }-->
+<!--            });-->
+<!--        }-->
+<!--    </script>-->
+<!--    <br>-->
+<!--    <textarea name="output" id="" cols="30" rows="10"></textarea>-->
+<!--</html>-->
+
+<!doctype html>
+<html>
+  <head>
+    <title>AdjViz</title>
+  </head>
+  <body>
+    <form method="POST">
+      <label for="text">Input Text:</label>
+      <input type="text" name="text" style="width:1000px; height:30px">
+      <br>
+      <br>
+<!--      <label for="aspect">Aspect:</label>-->
+<!--      <input type="text" name="aspect" style="width:100px">-->
+<!--      <br>-->
+<!--      <br>-->
+      <button type="submit">Submit</button>
+      <br>
+    </form>
+    {% if img1_url %}
+    <img src="{{ img1_url }}" alt="DepGCN">
+    <br>
+    <img src="{{ img2_url }}" alt="ConsGCN">
+    <br>
+    <img src="{{ img3_url }}" alt="DepConsGCN">
+
+<!--    <div style="display: flex">-->
+<!--      <img src="{{ img1_url }}" width="33%" alt="DepGCN">-->
+<!--      <img src="{{ img2_url }}" width="33%" alt="ConsGCN">-->
+<!--      <img src="{{ img3_url }}" width="33%" alt="DepConsGCN">-->
+<!--    </div>-->
+    {% endif %}
+  </body>
+</html>
+
+

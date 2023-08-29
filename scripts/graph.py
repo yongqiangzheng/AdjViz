@@ -58,22 +58,16 @@ def cons_adj(text):
             if len(cons) == 1:
                 continue
             matrix[cons.start:cons.end, cons.start:cons.end] += np.ones([len(cons), len(cons)])
-
-    # max_edge = np.amax(matrix, axis=1, keepdims=True)
-    # matrix = matrix / max_edge
-
-    # sum_edge_ = np.sum(matrix, axis=1, keepdims=True)
-    # matrix = matrix / (sum_edge_+1e-12)
-
     return matrix
 
+
+# def your_adj():
+#     return (n,n) numpy matrix
 
 def generate_fig(text):
     dep_matrix = dep_adj(text)
     cons_matrix = cons_adj(text)
     dep_cons_matrix = dep_matrix + cons_matrix
-    # sum_edge_ = np.sum(dep_cons_matrix, axis=1, keepdims=True)
-    # dep_cons_matrix = dep_cons_matrix / sum_edge_
 
     ticks = text.split()
 

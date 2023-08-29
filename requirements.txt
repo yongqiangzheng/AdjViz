@@ -1,0 +1,4 @@
+flask
+benepar
+matplotlib
+seaborn
